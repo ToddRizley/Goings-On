@@ -1,7 +1,8 @@
 require 'pry'
 require 'HTTParty'
 
-  class SeatGeekClient < Services
+module Services
+  class SeatGeekClient
 
     BASE_URL = "api.seatgeek.com"
     def search(city, date)
@@ -11,6 +12,8 @@ require 'HTTParty'
       binding.pry
     end
   end
+
+end
 
 
 

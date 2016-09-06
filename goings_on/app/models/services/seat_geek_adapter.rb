@@ -3,7 +3,11 @@
 # city = gets.chomp.downcase.split(" ").join("%20")
 
 require 'pry'
-class EventAdapter < Services
+module Services
+  include Services::SeatGeekClient
+
+
+class EventAdapter
   def get_events(city)
     date = (Time.new).strftime("%Y-%m-%d")
     binding.pry
@@ -20,8 +24,10 @@ class EventAdapter < Services
   end
 end
 
+end
 
-EventAdapter.new.get_events("New York")
+
+Services::EventAdapter.new.get_events("New York")
 
 
   # Services::SeatGeekClient.new.search("Boston", "2016-09-09")
